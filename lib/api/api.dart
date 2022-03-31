@@ -19,9 +19,17 @@ Future<List<MenuDto>> fetchMenues() async {
     // If the server did return a 200 OK response,
     // then parse the JSON.
     final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
-    final menuList =
+
+    List<MenuDto> menuListA = [];
+    for (var i = 0; i < parsed.length; i++) {
+      var menuItme = MenuDto.fromJson(parsed[i]);
+      menuListA.add(menuItme);
+    }
+
+    final menuListB =
         parsed.map<MenuDto>((json) => MenuDto.fromJson(json)).toList();
-    return menuList;
+
+    return menuListB;
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
