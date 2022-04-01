@@ -1,6 +1,6 @@
 //1. DEFINE A CLASS
 class Animal {
-  // Using late below: tellsl Dart that you are going to initialize the variable at some other point before using it.
+  // Using late below: late Dart that you are going to initialize the variable at some other point before using it.
   String _name;
   late bool _hasTail;
   late int _nrOfLegs;
