@@ -11,13 +11,14 @@ class MenuDto {
       required this.items});
 
   factory MenuDto.fromJson(Map<String, dynamic> json) {
-    return MenuDto(
+    var a = MenuDto(
         id: json["id"],
         name: json["name"],
         restaurantId: json["restaurantId"],
         items: json["items"]
             .map<MenuItemDto>((json) => MenuItemDto.fromJson(json))
             .toList());
+    return a;
   }
 }
 

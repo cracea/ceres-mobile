@@ -1,3 +1,6 @@
+String AnimalsJson =
+    '[{"name": "Jack","hasTail" : "true"},{ "name": "Huan", "nrOfLegs": "5"}]';
+
 //1. DEFINE A CLASS
 class Animal {
   // Using late below: late Dart that you are going to initialize the variable at some other point before using it.
@@ -53,6 +56,13 @@ class Animal {
     _hungry = false;
   }
 
+// {
+//     "id": "20e71e86-53e3-4682-99c2-4fa2c78ebaf9",
+//     "name": "Demo Restaurant botanica MENU",
+//     "restaurantId": "446df011-9ae6-41a1-a512-d6ea8572bb3b",
+//     "items": []
+// }
+
   //Lets create a function that would tell us if the anymal is sick
   bool isSick() {
     //if an anymal has less than 4 legs and no tails. in our imaginary world lets consider it being sick. :D
@@ -70,12 +80,27 @@ class Animal {
     _nrOfLegs = 4;
     _hasTail = true;
   }
+
+  void FromJsonl(Map<String, dynamic> menuMap) {
+    _name = menuMap["name"];
+  }
 }
 
 void main() {
 //2. CREATE OBJECTS
 //Initialise Animal object or in other words create a object
   Animal miota = Animal("Miota", true, 4);
+  miota.name;
+
+  // DO API CALL
+  Map<String, dynamic> menuMap = {
+    "id": "20e71e86-53e3-4682-99c2-4fa2c78ebaf9",
+    "name": "MiotaII",
+  };
+
+  miota.FromJsonl(menuMap);
+  miota.name;
+
 //Initialise another Animal object or in other words create another object
   Animal fiodor = Animal("Fiodor", true, 4);
 //And the last one
